@@ -17,7 +17,7 @@ backend:
     credentials: true
   database:
     client: sqlite3
-    connection: ':memory:'
+    connection: data.sqlite3
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 integrations:
@@ -62,7 +62,7 @@ scaffolder:
   github:
     token:
       $env: GITHUB_TOKEN
-    visibility: public # or 'internal' or 'private'
+    visibility: private # 'internal' or 'private' or 'public'
 
 catalog:
   rules:
@@ -75,6 +75,9 @@ catalog:
     # Backstage example APIs
     - type: url
       target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-apis.yaml
+
+    - type: url
+      target: https://github.com/wyattwalter/go-demo2/blob/master/catalog-info.yaml
 
     # Backstage example templates
     - type: github
