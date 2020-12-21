@@ -50,7 +50,13 @@ lighthouse:
 
 auth:
   # see https://backstage.io/docs/tutorials/quickstart-app-auth to know more about enabling auth providers
-  providers: {}
+  providers:
+    github:
+      development:
+        clientId:
+          $env: AUTH_GITHUB_CLIENT_ID
+        clientSecret:
+          $env: AUTH_GITHUB_CLIENT_SECRET
 
 scaffolder:
   github:
