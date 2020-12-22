@@ -14,6 +14,7 @@ services:
       - ./packages/:/usr/src/app/packages
       - ./app-config.yaml:/usr/src/app/app-config.yaml
       - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp/backstage:/tmp/backstage
 
   app:
     image: backstage
