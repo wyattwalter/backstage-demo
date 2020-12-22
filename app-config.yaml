@@ -1,6 +1,6 @@
 app:
   title: Scaffolded Backstage App
-  baseUrl: http://localhost:3000
+  baseUrl: http://0.0.0.0:3000
 
 organization:
   name: My Company
@@ -16,8 +16,8 @@ backend:
     methods: [GET, POST, PUT, DELETE]
     credentials: true
   database:
-    client: sqlite3
-    connection: data.sqlite3
+    client: pg
+    connection: 'postgresql://postgres:secret@database:5432/postgres'
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 integrations:

@@ -1,0 +1,6 @@
+.vscode
+.env
+dist-types
+node_modules
+packages/*/node_modules
+packages/*/dist

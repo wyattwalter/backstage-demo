@@ -1,0 +1,39 @@
+version: '3.4'
+services:
+  backend:
+    build: .
+    image: backstage
+    command: yarn workspace backend start
+    env_file:
+      - .env
+    ports:
+      - '7000:7000'
+    links:
+      - database
+    volumes:
+      - ./packages/:/usr/src/app/packages
+      - ./app-config.yaml:/usr/src/app/app-config.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  app:
+    image: backstage
+    command: yarn start
+    depends_on:
+      - backend
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./packages/:/usr/src/app/packages
+      - ./app-config.yaml:/usr/src/app/app-config.yaml
+
+  database:
+    image: postgres
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=secret
+    volumes:
+      - db:/var/lib/postgresql/data
+volumes:
+  db: {}
