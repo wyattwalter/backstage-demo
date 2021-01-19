@@ -7,6 +7,7 @@
   },
   "scripts": {
     "start": "yarn workspace app start",
+    "start-backend": "yarn workspace backend start",
     "build": "lerna run build",
     "build-image": "yarn workspace backend build-image",
     "tsc": "tsc",
@@ -27,7 +28,7 @@
     ]
   },
   "devDependencies": {
-    "@backstage/cli": "^0.4.2",
+    "@backstage/cli": "^0.4.6",
     "@spotify/prettier-config": "^7.0.0",
     "lerna": "^3.20.2",
     "prettier": "^1.19.1"
@@ -46,8 +47,5 @@
     "transformModules": [
       "@kyma-project/asyncapi-react"
     ]
-  },
-  "dependencies": {
-    "pg": "^8.5.1"
   }
 }
